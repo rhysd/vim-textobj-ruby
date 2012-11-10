@@ -24,6 +24,10 @@ function! s:syntax_from_block(block)
     return ''
 endfunction
 
+function! s:syntax_highlight(line)
+    return synIDattr(synID(a:line, col('.'),1), 'name')
+endfunction
+
 function! s:search_edge(block, indent, head)
     let syntax = s:syntax_from_block(a:block)
     while 1
@@ -33,7 +37,7 @@ function! s:search_edge(block, indent, head)
             throw 'not found'
         endif
         if indent('.') < a:indent &&
-                    \ syntax ==# synIDattr(synID(line,col('.'),1),'name')
+                    \ syntax ==# s:syntax_highlight(line)
             return line
         endif
     endwhile
@@ -59,12 +63,18 @@ endfunction
 
 function! textobj#ruby#search_any_block()
     let pos = getpos('.')
-    if ! search('\<\(if\|unless\|case\|while\|until\|for\|module\|class\|do\|begin\)\>')
-        return 0
-    endif
-    echo expand('<cword>')
+    let indent = indent('.')
+    while 1
+        if ! search('\<\%(if\|unless\|case\|while\|until\|for\|module\|class\|do\|begin\)\>', 'bW')
+            return 0
+        endif
+        if indent('.') < indent && s:syntax_highlight(line('.')) !=# 'rubyString'
+            break
+        endif
+    endwhile
+    let block = expand('<cword>')
     call setpos('.', pos)
-    return textobj#ruby#search_block(expand('<cword>'))
+    return textobj#ruby#search_block(block)
 endfunction
 
 let &cpo = s:save_cpo
