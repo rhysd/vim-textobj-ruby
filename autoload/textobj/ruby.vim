@@ -38,7 +38,7 @@ function! s:search_edge(block, indent, head)
         endif
         if indent('.') < a:indent &&
                     \ syntax ==# s:syntax_highlight(line)
-            return line
+            return getpos('.')
         endif
     endwhile
 endfunction
@@ -46,14 +46,14 @@ endfunction
 " @args
 "   @block : name of the block(e.g. module,if,do,begin and so on)
 " @return  : the line numbers of head and tail of the block
-function! textobj#ruby#search_block(block)
+function! s:search_block(block)
     let pos = getpos('.')
     let indent = indent('.')
     try
         let head = s:search_edge(a:block, indent, 1)
         call setpos('.', pos)
         let tail = s:search_edge(a:block, indent, 0)
-        return [head, tail]
+        return ['V', head, tail]
     catch /^not found$/
         echohl Error | echo 'block is not found.' | echohl None
         call setpos('.', pos)
@@ -61,7 +61,7 @@ function! textobj#ruby#search_block(block)
     endtry
 endfunction
 
-function! textobj#ruby#search_any_block()
+function! s:search_any_block()
     let pos = getpos('.')
     let indent = indent('.')
     while 1
@@ -74,7 +74,30 @@ function! textobj#ruby#search_any_block()
     endwhile
     let block = expand('<cword>')
     call setpos('.', pos)
-    return textobj#ruby#search_block(block)
+    return s:search_block(block)
+endfunction
+
+function! s:inside(range)
+    " check if range exists
+    if type(a:range) != type([]) || a:range[1][1]+1 > a:range[2][1]-1
+        return 0
+    endif
+
+    " narrow range by 1 line on both sides
+    let range = a:range
+    let range[1][1] += 1
+    let range[2][1] -= 1
+    echo range
+
+    return range
+endfunction
+
+function! textobj#ruby#any_select_i()
+    return s:inside(s:search_any_block())
+endfunction
+
+function! textobj#ruby#any_select_a()
+    return s:search_any_block()
 endfunction
 
 let &cpo = s:save_cpo
