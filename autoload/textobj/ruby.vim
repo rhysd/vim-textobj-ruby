@@ -1,7 +1,7 @@
-if exists('g:textobj_ruby_loaded')
+if exists('g:textobj_ruby_autoload_loaded')
     finish
 endif
-let g:textobj_ruby_loaded = 1
+let g:textobj_ruby_autoload_loaded = 1
 
 let s:save_cpo = &cpo
 set cpo&vim
