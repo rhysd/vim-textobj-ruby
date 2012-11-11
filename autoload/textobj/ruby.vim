@@ -28,31 +28,50 @@ function! s:syntax_highlight(line)
     return synIDattr(synID(a:line, col('.'),1), 'name')
 endfunction
 
-function! s:search_edge(block, indent, head)
-    let syntax = s:syntax_from_block(a:block)
+function! s:search_head(block, indent)
     while 1
-        let line = search('\<'.(a:head ? a:block : 'end').'\>', 
-                    \ (a:head ? 'bW' : 'W'))
-        if line == 0 || syntax == ''
+        let line = search( '\<\%('.a:block.'\)\>', 'bW' )
+        if line == 0
             throw 'not found'
         endif
+
+        let syntax = s:syntax_from_block(expand('<cword>'))
+        if syntax == ''
+            throw 'not found'
+        endif
+
         if indent('.') < a:indent &&
                     \ syntax ==# s:syntax_highlight(line)
+            return [syntax, getpos('.')]
+        endif
+    endwhile
+endfunction
+
+function! s:search_tail(block, indent, syntax)
+    while 1
+        let line = search( '\<end\>', 'W' )
+        if line == 0
+            throw 'not found'
+        endif
+
+        if indent('.') < a:indent &&
+                    \ a:syntax ==# s:syntax_highlight(line)
             return getpos('.')
         endif
     endwhile
 endfunction
 
+" TODO ブロックを正規表現で指定できるようにして，'module\|class' のように指定できるようにする
 " @args
 "   @block : name of the block(e.g. module,if,do,begin and so on)
 " @return  : the line numbers of head and tail of the block
 function! s:search_block(block)
-    let pos = getpos('.')
     let indent = indent('.')
+    let pos = getpos('.')
     try
-        let head = s:search_edge(a:block, indent, 1)
+        let [syntax, head] = s:search_head(a:block, indent)
         call setpos('.', pos)
-        let tail = s:search_edge(a:block, indent, 0)
+        let tail = s:search_tail(a:block, indent, syntax)
         return ['V', head, tail]
     catch /^not found$/
         echohl Error | echo 'block is not found.' | echohl None
@@ -93,11 +112,11 @@ function! s:inside(range)
 endfunction
 
 function! textobj#ruby#any_select_i()
-    return s:inside(s:search_any_block())
+    return s:inside(s:search_block('if\|unless\|case\|while\|until\|for\|module\|class\|do\|begin'))
 endfunction
 
 function! textobj#ruby#any_select_a()
-    return s:search_any_block()
+    return s:search_block('if\|unless\|case\|while\|until\|for\|module\|class\|do\|begin')
 endfunction
 
 let &cpo = s:save_cpo
