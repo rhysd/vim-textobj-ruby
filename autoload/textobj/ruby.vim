@@ -9,6 +9,7 @@ function! s:syntax_from_block(block) "{{{
                 \   'rubyModule'      : ['module'],
                 \   'rubyClass'       : ['class'],
                 \   'rubyControl'     : ['do', 'begin'],
+                \   'rubyDefine'      : ['def'],
                 \ })
         if index(names, a:block) >= 0
             return syntax
@@ -90,23 +91,23 @@ function! s:inside(range) "{{{
 endfunction
 "}}}
 
-" any block
+" select any block
 function! textobj#ruby#any_select_i() " {{{
-    return s:inside(s:search_block('if\|unless\|case\|while\|until\|for\|module\|class\|do\|begin'))
+    return s:inside(s:search_block('if\|unless\|case\|while\|until\|for\|def\|module\|class\|do\|begin'))
 endfunction
 
 function! textobj#ruby#any_select_a()
-    return s:search_block('if\|unless\|case\|while\|until\|for\|module\|class\|do\|begin')
+    return s:search_block('if\|unless\|case\|while\|until\|for\|def\|module\|class\|do\|begin')
 endfunction
 "}}}
 
-" select module
-function! textobj#ruby#object_block_select_i() "{{{
-    return s:inside(s:search_block('module\|class'))
+" select object definition
+function! textobj#ruby#object_definition_select_i() "{{{
+    return s:inside(s:search_block('module\|class\|def'))
 endfunction
 
-function! textobj#ruby#object_block_select_a()
-    return s:search_block('module\|class')
+function! textobj#ruby#object_definition_select_a()
+    return s:search_block('module\|class\|def')
 endfunction
 "}}}
 

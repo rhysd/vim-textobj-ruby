@@ -29,8 +29,8 @@ else
         \   },
         \
         \ 'module' : {
-        \      'select-a' : 'arm', '*select-a-function*' : 'textobj#ruby#object_block_select_a',
-        \      'select-i' : 'irm', '*select-i-function*' : 'textobj#ruby#object_block_select_i',
+        \      'select-a' : 'aro', '*select-a-function*' : 'textobj#ruby#object_definition_select_a',
+        \      'select-i' : 'iro', '*select-i-function*' : 'textobj#ruby#object_definition_select_i',
         \   },
         \
         \ 'loop' : {
