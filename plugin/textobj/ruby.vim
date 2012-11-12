@@ -9,6 +9,7 @@ set cpo&vim
 let g:textobj_ruby_tiny = get(g:, 'textobj_ruby_tiny', 0)
 
 if g:textobj_ruby_tiny
+    " ar/ir mapping only. keep mapping simple. "{{{
     call textobj#user#plugin('ruby', {
         \
         \ 'any' : {
@@ -17,7 +18,9 @@ if g:textobj_ruby_tiny
         \   },
         \
         \ })
+    "}}}
 else
+    " mapping to match all, module/class, loop, control or do only block "{{{
     call textobj#user#plugin('ruby', {
         \
         \ 'any' : {
@@ -45,6 +48,7 @@ else
         \      'select-i' : 'ird', '*select-i-function*' : 'textobj#ruby#do_block_select_i',
         \   },
         \ })
+    "}}}
 endif
 
 let &cpo = s:save_cpo
