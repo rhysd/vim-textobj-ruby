@@ -22,12 +22,12 @@ unless ARGV.empty?
   case ARGV.size
   when 1
     if ARGV[0] == "help"
-      puts <<-Eos
+      puts <<-EOS
 Hey! this is textobj for ruby.
 You can test many features in this file
 if you are interested in this plugin.
 Let's load this plugin on runtimepath!
-      Eos
+      EOS
     else
       begin
         raise
