@@ -122,11 +122,11 @@ endfunction
 
 " select control statement
 function! textobj#ruby#control_block_select_i() " {{{
-    return s:inside(s:search_block('do\|begin\|if'))
+    return s:inside(s:search_block('do\|begin\|if\|unless\|case'))
 endfunction
 
 function! textobj#ruby#control_block_select_a()
-    return s:search_block('do\|begin\|if')
+    return s:search_block('do\|begin\|if\|unless\|case')
 endfunction
 "}}}
 
