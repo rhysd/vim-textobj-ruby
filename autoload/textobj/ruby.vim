@@ -111,6 +111,7 @@ function! s:inside(range)
     return range
 endfunction
 
+" any block "{{{
 function! textobj#ruby#any_select_i()
     return s:inside(s:search_block('if\|unless\|case\|while\|until\|for\|module\|class\|do\|begin'))
 endfunction
@@ -118,6 +119,47 @@ endfunction
 function! textobj#ruby#any_select_a()
     return s:search_block('if\|unless\|case\|while\|until\|for\|module\|class\|do\|begin')
 endfunction
+"}}}
+
+" select module "{{{
+function! textobj#ruby#object_block_select_i()
+    return s:inside(s:search_block('module\|class'))
+endfunction
+
+function! textobj#ruby#object_block_select_a()
+    return s:search_block('module\|class')
+endfunction
+"}}}
+
+" select loop "{{{
+function! textobj#ruby#loop_block_select_i()
+    return s:inside(s:search_block('while\|until\|for'))
+endfunction
+
+function! textobj#ruby#loop_block_select_a()
+    return s:search_block('while\|until\|for')
+endfunction
+"}}}
+
+" select control statement "{{{
+function! textobj#ruby#control_block_select_i()
+    return s:inside(s:search_block('do\|begin\|if'))
+endfunction
+
+function! textobj#ruby#control_block_select_a()
+    return s:search_block('do\|begin\|if')
+endfunction
+"}}}
+
+" select do block "{{{
+function! textobj#ruby#do_block_select_i()
+    return s:inside(s:search_block('do'))
+endfunction
+
+function! textobj#ruby#do_block_select_a()
+    return s:search_block('do')
+endfunction
+"}}}
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
