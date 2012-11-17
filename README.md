@@ -14,4 +14,4 @@ Then only
 - any block with end-terminated : `dir`, `dar`, `cir`, `car`, `yir`, `yar` and more mappings...
 is defined.
 
-This plugin requires [vim-textobj-user](https://github.com/rhysd/vim-textobj-user).
+This plugin requires [vim-textobj-user](https://github.com/kana/vim-textobj-user)
