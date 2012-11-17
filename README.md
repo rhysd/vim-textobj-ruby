@@ -20,7 +20,7 @@ Combinations of textobject and Ruby block is below.
     </tr>
     <tr>
         <td>control blocks</td>
-        <td>do/begin/if/unless/case</td>
+        <td>do, begin, if, unless, case</td>
         <td>dird, dard, cird, card, yird, yard and more mappings...</td>
     </tr>
     <tr>
