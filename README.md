@@ -62,9 +62,9 @@ end
 Only bellow mapping is defined.
 <table>
     <tr>
-        <th>description</th>
-        <th>blocks</th>
-        <th>mappings</th>
+        <th>Description</th>
+        <th>Blocks</th>
+        <th>Operator-pending mappings</th>
     </tr>
     <tr>
         <td>any block with end-terminated</td>
