@@ -9,13 +9,13 @@ If you don't want to use above many mappings and want more simple interface, set
 
 Example:
 
-`\%#` is the place of your cursor.
+`#\%` is the place of your cursor.
 
 ```ruby
 def hoge(yo)
     if yo
         puts "yo!"
-        \%#
+        #\%
     end
     puts "everyone!"
 end
@@ -25,7 +25,7 @@ Typing `dar` removes whole `if` block
 
 ```ruby
 def hoge(yo)
-    \#%
+    #\%
     puts "everyone!"
 end
 ```
@@ -35,7 +35,7 @@ or `dir` removes innner `if` block.
 ```ruby
 def hoge(yo)
     if yo
-    \%#
+    #\%
     end
 end
 ```
@@ -48,7 +48,7 @@ def hoge(yo)
         puts "yo!"
         
     end
-    puts "everyone!" \%#
+    puts "everyone!" #\%
 end
 ```
 
