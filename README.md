@@ -4,8 +4,9 @@ This Vim plugin makes text objects with various ruby block structures.
 Many end-terminated blocks are parsed using regex, indentation and syntax highlight.
 This is more correct than parsing text with regex only.
 
-## Simple one operator-pending command `r`
-If you don't want to use above many mappings and want more simple interface, set `g:textobj_ruby_tiny` to `1`.
+## Simple one operator-pending mapping `r`
+
+Operator-pending mapping `r` is added. `dir`, `yar` and other mappings are available like `diw`, `yi'`.
 
 Example:
 
