@@ -28,7 +28,7 @@ else
         \      'select-i' : 'irr', '*select-i-function*' : 'textobj#ruby#any_select_i',
         \   },
         \
-        \ 'module' : {
+        \ 'definition' : {
         \      'select-a' : 'aro', '*select-a-function*' : 'textobj#ruby#object_definition_select_a',
         \      'select-i' : 'iro', '*select-i-function*' : 'textobj#ruby#object_definition_select_i',
         \   },
