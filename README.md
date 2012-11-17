@@ -65,7 +65,7 @@ Only bellow mapping is defined.
     <tr>
         <th>Description</th>
         <th>Blocks</th>
-        <th>Operator-pending mappings</th>
+        <th>Operator-pending Mappings</th>
     </tr>
     <tr>
         <td>any block with end-terminated</td>
@@ -89,7 +89,7 @@ Combinations of textobjects and Ruby blocks are below.
     <tr>
         <th>Description</th>
         <th>Blocks</th>
-        <th>Operator-pending mappings</th>
+        <th>Operator-pending Mappings</th>
     </tr>
     <tr>
         <td>definitions blocks</td>
