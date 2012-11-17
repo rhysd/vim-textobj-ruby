@@ -7,6 +7,7 @@ This is more correct than parsing text with regex only.
 ## Simple one operator-pending mapping `r`
 
 Operator-pending mapping `r` is added. `dir`, `yar` and other mappings are available like `diw`, `yi'`.
+`if`, `unless`, `case`, `while`, `until`, `for`, `def`, `module`, `class`, `do`, `begin` blocks are selected as text-objects.
 
 Example:
 
