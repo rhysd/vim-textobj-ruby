@@ -9,29 +9,29 @@ Combinations of textobject and Ruby block is below.
         <th>mappings</th>
     </tr>
     <tr>
-        <th>definitions blocks</th>
-        <th>`module`, `class`, `def`</th>
-        <th>`diro`, `daro`, `ciro`, `caro`, `yiro`, `yaro` and more mappings...</th>
+        <td>definitions blocks</td>
+        <td>`module`, `class`, `def`</td>
+        <td>`diro`, `daro`, `ciro`, `caro`, `yiro`, `yaro` and more mappings...</td>
     </tr>
     <tr>
-        <th>loop blocks</th>j
-        <th>`while`, `for`, `until`</th>j
-        <th>`dirl`, `darl`, `cirl`, `carl`, `yirl`, `yarl` and more mappings...</th>
+        <td>loop blocks</td>j
+        <td>`while`, `for`, `until`</td>j
+        <td>`dirl`, `darl`, `cirl`, `carl`, `yirl`, `yarl` and more mappings...</td>
     </tr>
     <tr>
-        <th>control blocks</th>
-        <th>`do`/`begin`/`if`/`unless`/`case`</th>
-        <th>`dird`, `dard`, `cird`, `card`, `yird`, `yard` and more mappings...</th>
+        <td>control blocks</td>
+        <td>`do`/`begin`/`if`/`unless`/`case`</td>
+        <td>`dird`, `dard`, `cird`, `card`, `yird`, `yard` and more mappings...</td>
     </tr>
     <tr>
-        <th>do statement</th>
-        <th>`do`</th>
-        <th>`dird`, `dard`, `cird`, `card`, `yird`, `yard` and more mappings...</th>
+        <td>do statement</td>
+        <td>`do`</td>
+        <td>`dird`, `dard`, `cird`, `card`, `yird`, `yard` and more mappings...</td>
     </tr>
     <tr>
-        <th>any block including above all</th>
-        <th>all</th>
-        <th>`dirr`, `darr`, `cirr`, `carr`, `yirr`, `yarr` and more mappings...</th>
+        <td>any block including above all</td>
+        <td>all</td>
+        <td>`dirr`, `darr`, `cirr`, `carr`, `yirr`, `yarr` and more mappings...</td>
     </tr>
 </table>
 
@@ -40,9 +40,14 @@ If you don't want to use above many mappings and want more simple interface, set
 Then only
 <table>
     <tr>
-        <th>any block with end-terminated</th>
-        <th>all</th>
-        <th>`dir`, `dar`, `cir`, `car`, `yir`, `yar` and more mappings...</th>
+        <th>description</th>
+        <th>blocks</th>
+        <th>mappings</th>
+    </tr>
+    <tr>
+        <td>any block with end-terminated</td>
+        <td>all</td>
+        <td>`dir`, `dar`, `cir`, `car`, `yir`, `yar` and more mappings...</td>
     </tr>
 </table>
 is defined.
