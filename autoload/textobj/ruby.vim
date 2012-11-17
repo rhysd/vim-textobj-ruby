@@ -36,21 +36,22 @@ function! s:search_head(block, indent) "{{{
             throw 'not found'
         endif
 
-        if indent('.') < a:indent &&
+        let current_indent = indent('.')
+        if current_indent < a:indent &&
                     \ syntax ==# s:syntax_highlight(line)
-            return [syntax, getpos('.')]
+            return [syntax, current_indent, getpos('.')]
         endif
     endwhile
 endfunction
 
-function! s:search_tail(block, indent, syntax)
+function! s:search_tail(block, head_indent, syntax)
     while 1
         let line = search( '\<end\>', 'W' )
         if line == 0
             throw 'not found'
         endif
 
-        if indent('.') < a:indent &&
+        if indent('.') == a:head_indent &&
                     \ a:syntax ==# s:syntax_highlight(line)
             return getpos('.')
         endif
@@ -60,12 +61,11 @@ endfunction
 
 " search the block's head and tail positions
 function! s:search_block(block) "{{{
-    let indent = indent('.')
     let pos = getpos('.')
     try
-        let [syntax, head] = s:search_head(a:block, indent)
+        let [syntax, head_indent, head] = s:search_head(a:block, indent('.'))
         call setpos('.', pos)
-        let tail = s:search_tail(a:block, indent, syntax)
+        let tail = s:search_tail(a:block, head_indent, syntax)
         return ['V', head, tail]
     catch /^not found$/
         echohl Error | echo 'block is not found.' | echohl None
