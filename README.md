@@ -1,10 +1,10 @@
-## Make text objects with various ruby block structures
+# Make text objects with various ruby block structures
 
 This Vim plugin makes text objects with various ruby block structures.
 Many end-terminated blocks are parsed using regex, indentation and syntax highlight.
 This is more correct than parsing text with regex only.
 
-### Simple one operator-pending command `r`
+## Simple one operator-pending command `r`
 If you don't want to use above many mappings and want more simple interface, set `g:textobj_ruby_tiny` to `1`.
 
 Example:
@@ -76,7 +76,7 @@ Only bellow mapping is defined.
 
 This plugin requires [vim-textobj-user](https://github.com/kana/vim-textobj-user)
 
-### Or many operator-pending mappings for Ruby blocks
+## Or many operator-pending mappings for Ruby blocks
 
 If you set `g:textobj_ruby_tiny` to `0`, more mappings are defined.
 You can specify kinds of Ruby blocks.
