@@ -79,7 +79,7 @@ This plugin requires [vim-textobj-user](https://github.com/kana/vim-textobj-user
 
 ## Or many operator-pending mappings for Ruby blocks
 
-If you set `g:textobj_ruby_tiny` to `0`, more mappings are defined.
+If you set `g:textobj_ruby_more_mappings` to `1`, more mappings are defined.
 You can specify kinds of Ruby blocks.
 If you remember all mappings, it will be more convenient.
 
