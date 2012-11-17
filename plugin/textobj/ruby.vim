@@ -6,9 +6,9 @@ let g:loaded_textobj_ruby_plugin = 1
 let s:save_cpo = &cpo
 set cpo&vim
 
-let g:textobj_ruby_tiny = get(g:, 'textobj_ruby_tiny', 0)
+let g:textobj_ruby_more_mappings = get(g:, 'textobj_ruby_more_mappings', 0)
 
-if g:textobj_ruby_tiny
+if ! g:textobj_ruby_more_mappings
     " ar/ir mapping only. keep mapping simple. "{{{
     call textobj#user#plugin('ruby', {
         \
