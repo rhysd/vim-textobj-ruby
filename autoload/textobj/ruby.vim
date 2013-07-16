@@ -85,7 +85,6 @@ function! s:inside(range) "{{{
     let range = a:range
     let range[1][1] += 1
     let range[2][1] -= 1
-    echo range
 
     return range
 endfunction
