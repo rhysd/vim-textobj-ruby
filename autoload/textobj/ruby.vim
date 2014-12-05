@@ -63,7 +63,8 @@ endfunction
 function! s:search_block(block) "{{{
     let pos = getpos('.')
     try
-        let [syntax, head_indent, head] = s:search_head(a:block, indent('.'))
+        let indent = getline('.') == '' ? cindent('.') : indent('.')
+        let [syntax, head_indent, head] = s:search_head(a:block, indent)
         call setpos('.', pos)
         let tail = s:search_tail(a:block, head_indent, syntax)
         return ['V', head, tail]
