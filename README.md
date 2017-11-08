@@ -98,8 +98,8 @@ Combinations of textobjects and Ruby blocks are below.
         <td>ro</td>
     </tr>
     <tr>
-        <td>loop blocks</td>j
-        <td>while, for, until</td>j
+        <td>loop blocks</td>
+        <td>while, for, until</td>
         <td>rl</td>
     </tr>
     <tr>
