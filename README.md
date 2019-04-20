@@ -4,6 +4,8 @@ This Vim plugin makes text objects with various ruby block structures.
 Many end-terminated blocks are parsed using regex, indentation and syntax highlight.
 This is more correct than parsing text with regex only.
 
+This plugin requires [vim-textobj-user](https://github.com/kana/vim-textobj-user)
+
 ## Simple one operator-pending mapping `r`
 
 Operator-pending mapping `r` is added. `dir`, `yar` and other mappings are available like `diw`, `yi'`.
@@ -75,8 +77,6 @@ Only bellow mapping is defined.
     </tr>
 </table>
 
-
-This plugin requires [vim-textobj-user](https://github.com/kana/vim-textobj-user)
 
 ## Or many operator-pending mappings for Ruby blocks
 
